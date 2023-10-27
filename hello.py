@@ -1,6 +1,6 @@
 import logging
 
-from flask import Flask, request, jsonify, render_template, make_response
+from flask import Flask, request, jsonify, render_template, make_response, Blueprint
 from werkzeug.utils import secure_filename
 
 from log_util import logger
@@ -226,5 +226,38 @@ def response_other():
     return response
 
 
+# 五、服务主机端口配置及debug模式
+
+# 六、蓝图与视图
+# 要使用蓝图，首先要声明一个蓝图对象。
+
+goods_router = Blueprint(name="goods", import_name=__name__)
+user_router = Blueprint(name="users", import_name=__name__, url_prefix="/user")
+
+
+@goods_router.route("/rr")
+def index():
+    return {"code":0, "msg": "get success", "data": []}
+
+
+@goods_router.route("/add/", methods=["POST"])
+def add_goods():
+    return {"code":0, "msg": "add success"}
+
+
+@user_router.route("/add/", methods=["post"])
+def add_users():
+    return {"code":0, "msg": "add user success"}
+
+# 七、模板技术
+
+
+
+
+
+
+
 if __name__ == "__main__":
+    app.register_blueprint(goods_router)
+    app.register_blueprint(user_router)
     app.run(debug=True)
