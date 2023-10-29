@@ -1,0 +1,12 @@
+<!--继承父模板-->
+{% extends "parent.html" %}
+{% block title %} 这是son私人定制title     {% endblock %}
+{% block content %}
+<h1>son私人定制content={{content}}</h1>
+<button>这是私人定制的button</button>
+<p>
+    {% if money > 100 %}
+        money={{money}}大于100
+    {% endif %}
+</p>
+{% endblock %}

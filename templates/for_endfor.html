@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+ <p>
+      遍历列表：大于100的数字如下<br />
+      {% for money in money_list %}
+        {% if money > 100 %}
+          {{money}}<br />
+        {% endif %}
+      {% endfor %}
+    </p>
+    <p>
+      遍历字典：<br />
+      {% for p in person %}
+        {% if p.money > 100000 %}
+          {{p.name}},你的小日子还过得去！<br />
+        {% else %}
+          {{p.name}},你啥也不是！<br />
+        {% endif %}
+      {% endfor %}
+    </p>
+</body>
+</html>

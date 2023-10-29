@@ -1,0 +1,18 @@
+<!--继承父模板-->
+{% extends "parent.html" %}
+<!--将父模板中预留的不同部分进行私人定制-->
+{% block title%} 这是son私人定制title{% endblock %}
+
+<!--导入模板，多个模板，其中fore，html不存在-->
+{% include ["fore.html","three.html"] ignore missing %}
+
+{% block content %}
+<!--私人定制的时候使用变量传值已经逻辑语句-->
+<h1>son私人定制content={{content}}</h1>
+<button>私人地址按钮</button>
+<p>
+    {% if money > 100 %}
+        money={{money}}大于100
+    {% endif %}
+</p>
+{% endblock %}

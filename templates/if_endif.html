@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+<p>
+        游戏开始！
+      {% if person.money < 10000000 and person.gender == "男" %}
+          <!-- 如果金额大于100并且是男性     -->
+          对不起！{{person.name}}先生，你啥也不是!
+      {% elif person.money > 10000000 and person.gender == "男" %}
+          {{person.name}}老板，你那里还招人不！
+      {% elif person.money <10000 and person.gender == "女"%}
+          没事儿{{person.name}}老妹儿，哥每个月给你10万零花钱，那你第一个月资产就有{{person.money + 100000}}元！
+       {% else %}
+          不出意外你应该是个富婆！{{other}}
+        <!--   不要忘了if的结束语句，endif     -->
+        {% endif %}
+    </p>
+</body>
+</html>
