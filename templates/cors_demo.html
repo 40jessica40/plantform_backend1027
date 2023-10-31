@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>跨域问题</title>
+</head>
+<body>
+    <div>
+      <button class="button" id="hello">点击出现跨域问题</button>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var btnHello = document.querySelector("button#hello");
+    btnHello.onclick = () => {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          alert(xhr.responseText);
+        }
+      };
+      xhr.withCredentials = true;
+        <!--  请求本地定义的hello接口--如果这个请求的协议、主机、端口有任意一个和访问这个页面的url的这3项不一致，那就会发生跨域问题    -->
+      xhr.open("get", "http://127.0.0.1:5000/hello", true);
+      xhr.setRequestHeader("Content-Type", "text");
+      xhr.send();
+    };
+</script>
