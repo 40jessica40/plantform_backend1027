@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态文件之icon</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+<!--    使用url_for()函数获取静态文件的url，两个参数，第一个固定static不变，第二个通过filename=静态文件名-->
+<!--    <img alt="cat" src="{{url_for('static',filename='images/cat.png')}}">-->
+<!--    <img alt="tiger" src="{{url_for('static',filename='images/tiger.png')}}">-->
+</head>
+<body>
+  <h1>静态文件</h1>
+    <img src="{{ url_for('static', filename='img.png') }}">
+    <img rel="icon" src="{{url_for('static', filename='images/logo.png')}}">
+</body>
+</html>
