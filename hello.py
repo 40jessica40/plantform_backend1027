@@ -249,10 +249,6 @@ def add_goods():
 def add_users():
     return {"code":0, "msg": "add user success"}
 
-# 七、模板技术
-
-
-
 
 
 
@@ -260,4 +256,4 @@ def add_users():
 if __name__ == "__main__":
     app.register_blueprint(goods_router)
     app.register_blueprint(user_router)
-    app.run(debug=True)
+    app.run(port=5050, debug=True)
